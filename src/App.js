@@ -6,8 +6,8 @@ const getCount = require('starred-count');
 const flex_container = {
   display: 'flex',
   flexFlow: 'wrap',
-  justifyContent: 'center space-around',
-  alignItems: 'center'
+  alignItems: 'center',
+  justifyContent: 'center',
 }
 
 
@@ -110,7 +110,6 @@ class App extends Component {
   }
 
   errorHandler = (status) => {
-    console.log(this.state.status);
     if (this.state.status === 404) {
       this.setState({avatar_url : error_url, login: 'NO ONE'})
     }
@@ -122,7 +121,6 @@ class App extends Component {
       const req = await fetch('https://api.github.com/users/'+log);
       const status = await req.status;
       this.setState({status});
-      console.log(status);
       setTimeout(() => {
         this.errorHandler(status);
       }, 4 * 1000)
